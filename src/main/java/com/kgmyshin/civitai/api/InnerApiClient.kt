@@ -6,8 +6,7 @@ import com.kgmyshin.civitai.api.json.GetJobsByJobIdResponseJson
 import com.kgmyshin.civitai.api.json.GetJobsByTokenResponseJson
 import retrofit2.http.*
 
-
-interface InnerApiClient {
+internal interface InnerApiClient {
 
     @POST("v1/consumer/jobs")
     @Headers(
