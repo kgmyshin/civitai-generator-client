@@ -1,0 +1,28 @@
+package com.kgmyshin.civitai.api.json.txt2img
+
+enum class Scheduler {
+    EulerA,
+    Euler,
+    LMS,
+    Heun,
+    DPM2,
+    DPM2A,
+    DPM2SA,
+    DPM2M,
+    DPMSDE,
+    DPMFast,
+    DPMAdaptive,
+    LMSKarras,
+    DPM2Karras,
+    DPM2AKarras,
+    DPM2SAKarras,
+    DPM2MKarras,
+    DPMSDEKarras,
+    DDIM,
+    PLMS,
+    UniPC,
+    Undefined,
+    LCM,
+    DDPM,
+    DEIS,
+}
