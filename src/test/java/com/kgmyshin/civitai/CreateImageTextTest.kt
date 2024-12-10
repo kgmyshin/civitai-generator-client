@@ -2,7 +2,6 @@ package com.kgmyshin.civitai
 
 import com.kgmyshin.civitai.api.ApiClientFactory
 import com.kgmyshin.civitai.api.json.CreateImageRequestJson
-import com.kgmyshin.civitai.api.json.txt2img.AdditionalNetwork
 import com.kgmyshin.civitai.api.json.txt2img.BaseDiffusionModel
 import com.kgmyshin.civitai.api.json.txt2img.ImageJobParams
 import com.kgmyshin.civitai.api.json.txt2img.Scheduler
@@ -24,25 +23,17 @@ class CreateImageTextTest {
         )
         val request = CreateImageRequestJson(
             quantity = 1,
-            model = "urn:air:sdxl:checkpoint:civitai:372465@914390",
+            model = "urn:air:sd1:checkpoint:civitai:4384@128713",
             baseModel = BaseDiffusionModel.SDXL,
-            additionalNetworks = mapOf(
-                "urn:air:sd1:lora:civitai:676511@757309" to AdditionalNetwork(
-                    type = "Lora", strength = 0.2
-                ), "urn:air:sd1:lora:civitai:122359@135867" to AdditionalNetwork(
-                    type = "Lora", strength = 1.0
-                ), "urn:air:sd1:lora:civitai:694900@777665" to AdditionalNetwork(
-                    type = "Lora", strength = 1.0
-                )
-            ),
+            additionalNetworks = null,
             params = ImageJobParams(
-                prompt = "score_9, score_8_up, score_7_up, score_6_up, score_5_up, score_4_up, 2d, sexy boudoir photography by Hajime Sorayama, blurry background, VindictusFiona, parted lips,Photography,masterpiece,ultra detailed,4k,professional artwork,official art, (source_photo),   absurdres, best quality, expressive, cinematic, (very Soft hue), Soft shadow,  seductive, vulgarity,obscenity,erotic, girl is cosplaying (), kpop idol, pouty lips,  female beautiful white skin, perfect hairline, long eyelash, (large eyes),  (bangs:1.2), (short Sleek hair cut:1.2), (black hair:1.2), (bangs:1.2), dark eyes (solo, 1girl, solo focus:1.1), (large breast), pale skin, creamy smooth skin,  wide hips, huge hips, anatomically correct, open mouth, silly smile, Expressiveh,  half-closed eyes,  obedient, ((satisfied expression)),  TONGUE OUT, ruanyi0897, black thighhighs, turtleneck, id card,lanyard,grey skirt,crop top,(black sweater:1.2), pencil skirt, Gray skirt,wide shot, side view, on left, medium shot, full body shot, on the street, sunrise, in the city, with shooting stars, at night, cardigan",
-                negativePrompt = "ugly face,",
-                scheduler = Scheduler.DPM2AKarras,
-                steps = 30,
-                cfgScale = 8.0,
-                width = 1024,
-                height = 1024,
+                prompt = "RAW photo, face portrait photo of woman, wearing black dress, happy face, hard shadows, cinematic shot, dramatic lighting",
+                negativePrompt = "(deformed, distorted, disfigured:1.3)",
+                scheduler = Scheduler.EulerA,
+                steps = 20,
+                cfgScale = 7.0,
+                width = 512,
+                height = 512,
                 seed = null,
                 clipSkip = 2
             ),
@@ -68,5 +59,4 @@ class CreateImageTextTest {
             println(getJobsResponseJson)
         }
     }
-
 }
